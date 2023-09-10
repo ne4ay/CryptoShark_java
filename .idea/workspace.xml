@@ -4,29 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aafa4157-71a0-4b14-9dad-c0331b11a01d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cs-integration/binance-api/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cs-integration/binance-api/src/main/java/com/nechay/cryptoshark/binance/api/enums/StreamMethod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cs-integration/binance-api/src/main/java/com/nechay/cryptoshark/binance/api/utils/BinanceUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cs-integration/binance-api/src/main/java/com/nechay/cryptoshark/binance/api/ws/requests/StreamSubscriptionRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cs-integration/binance-api/src/main/java/com/nechay/cryptoshark/binance/api/ws/responses/StreamBookTickerUpdate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cs-integration/binance-api/src/test/java/com/nechay/cryptoshark/binance/api/StreamBookTickerUpdateSerializationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cs-integration/connection-api/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cs-integration/connection-api/src/main/java/com/nechay/cryptoshark/connection/model/ConnectionRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cs-integration/connection-api/src/main/java/com/nechay/cryptoshark/connection/model/ConnectionResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cs-integration/connection-api/src/main/java/com/nechay/cryptoshark/connection/model/Markets.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cs-integration/connection-api/src/main/java/com/nechay/cryptoshark/connection/model/StreamRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cs-integration/connection-api/src/main/java/com/nechay/cryptoshark/connection/model/StreamResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cs-integration/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="aafa4157-71a0-4b14-9dad-c0331b11a01d" name="Changes" comment="Initial">
+      <change afterPath="$PROJECT_DIR$/cs-back/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/CsBackApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/ServletInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/app/BinanceProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/controller/SubscriptionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/controller/TestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/dto/SubscriptionRequestTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cs-back/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cs-back/src/main/resources/log4j2-spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cs-integration/connection-api/src/main/java/com/nechay/cryptoshark/connection/model/Markets.java" beforeDir="false" afterPath="$PROJECT_DIR$/cs-integration/connection-api/src/main/java/com/nechay/cryptoshark/connection/model/Market.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,12 +58,17 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "openjdk-17",
+    "last_opened_file_path": "C:/Users/anechaev/IdeaProjects/Crypto/CryptoShark/cs-back/src/main/resources",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\anechaev\IdeaProjects\Crypto\CryptoShark\cs-back\src\main\resources" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\anechaev\IdeaProjects\Crypto\CryptoShark\integration" />
     </key>
@@ -108,8 +104,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1694342767468</updated>
-      <workItem from="1694342769221" duration="1954000" />
+      <workItem from="1694342769221" duration="7551000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial">
+      <created>1694347595615</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1694347595615</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Initial">
+      <created>1694347626051</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1694347626051</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,6 +136,26 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/cs-integration/binance-api/src/test/java/com/nechay/cryptoshark/binance/api/StreamBookTickerUpdateSerializationTest.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/cs-integration/binance-api/src/test/java/com/nechay/cryptoshark/binance/api/StreamBookTickerUpdateSerializationTest.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.vaadin.designer2.intellij.settings.SizePresetsSettingsComponent">
     <option name="sizePresets">
