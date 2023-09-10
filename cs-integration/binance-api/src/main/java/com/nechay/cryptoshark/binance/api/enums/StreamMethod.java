@@ -1,4 +1,4 @@
-package com.nechay.cryptoshark.binance.api;
+package com.nechay.cryptoshark.binance.api.enums;
 
 /**
  * @author anechaev
