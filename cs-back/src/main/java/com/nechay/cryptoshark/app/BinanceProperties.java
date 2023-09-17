@@ -5,6 +5,7 @@ import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.util.StringJoiner;
 
@@ -12,10 +13,11 @@ import java.util.StringJoiner;
  * @author anechaev
  * @since 11.09.2023
  */
+@Component
 public class BinanceProperties {
     private static final Logger log = LoggerFactory.getLogger(TestController.class);
 
-    @Value("${binance.connection.websocket.address:wss://stream.binance.com:443/ws}")
+    @Value("${binance.connection.websocket.address}")
     private String websocketStreamAddress;
 
     @PostConstruct

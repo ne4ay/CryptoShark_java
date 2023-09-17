@@ -1,4 +1,4 @@
-package com.nechay.cryptoshark.dto;
+package com.nechay.cryptoshark.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.nechay.cryptoshark.connection.model.Market;
@@ -15,11 +15,11 @@ public class SubscriptionRequestTO {
     @JsonProperty
     private List<String> symbols;
     @JsonProperty
-    private Market market;
+    private List<Market> markets;
 
-    public SubscriptionRequestTO(List<String> symbols, Market market) {
+    public SubscriptionRequestTO(List<String> symbols, List<Market> markets) {
         this.symbols = symbols;
-        this.market = market;
+        this.markets = markets;
     }
 
     public SubscriptionRequestTO() {
@@ -29,16 +29,17 @@ public class SubscriptionRequestTO {
         return symbols;
     }
 
-    public Market getMarket() {
-        return market;
+    public List<Market> getMarkets() {
+        return markets;
     }
 
     public static class Builder {
         private List<String> symbols;
-        private Market market;
+        private List<Market> markets;
 
         public Builder() {
             this.symbols = new ArrayList<>();
+            this.markets = new ArrayList<>();
         }
 
         public Builder setSymbols(@Nonnull List<String> symbols) {
@@ -51,13 +52,18 @@ public class SubscriptionRequestTO {
             return this;
         }
 
-        public Builder setMarket(Market market) {
-            this.market = market;
+        public Builder setMarkets(@Nonnull List<Market> markets) {
+            this.markets = markets;
+            return this;
+        }
+
+        public Builder addMarket(@Nonnull Market market) {
+            this.markets.add(market);
             return this;
         }
 
         public SubscriptionRequestTO create() {
-            return new SubscriptionRequestTO(symbols, market);
+            return new SubscriptionRequestTO(symbols, markets);
         }
     }
 }

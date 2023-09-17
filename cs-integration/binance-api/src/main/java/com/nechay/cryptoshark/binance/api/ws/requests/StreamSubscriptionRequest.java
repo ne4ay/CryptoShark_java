@@ -2,6 +2,8 @@ package com.nechay.cryptoshark.binance.api.ws.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.nechay.cryptoshark.binance.api.enums.StreamMethod;
+import com.nechay.cryptoshark.binance.api.utils.BinanceStreamName;
+import com.nechay.cryptoshark.binance.api.utils.BinanceUtils;
 import com.nechay.cryptoshark.connection.model.StreamRequest;
 
 import javax.annotation.Nonnull;
@@ -29,6 +31,12 @@ public class StreamSubscriptionRequest implements StreamRequest {
     }
 
     public StreamSubscriptionRequest() {
+    }
+
+    public static StreamSubscriptionRequest subscribtion(List<String> symbols, BinanceStreamName streamName, long id) {
+        return new StreamSubscriptionRequest(StreamMethod.SUBSCRIBE,
+            BinanceUtils.toSubscriptionSymbols(symbols, streamName),
+            id);
     }
 
     public StreamMethod getMethod() {

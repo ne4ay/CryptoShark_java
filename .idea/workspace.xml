@@ -4,20 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aafa4157-71a0-4b14-9dad-c0331b11a01d" name="Changes" comment="Initial">
-      <change afterPath="$PROJECT_DIR$/cs-back/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/CsBackApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/ServletInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/app/BinanceProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/controller/SubscriptionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/controller/TestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/dto/SubscriptionRequestTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cs-back/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cs-back/src/main/resources/log4j2-spring.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="aafa4157-71a0-4b14-9dad-c0331b11a01d" name="Changes" comment="back had been added">
+      <change afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/app/CsBackBeansConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/controller/CsControllerUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/dto/DtoUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/dto/response/SubscriptionResponseTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/exception/AbstractCsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/exception/UnsupportedMarketException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/subscription/CompoundSubscriptionProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/subscription/SubscriptionProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/subscription/concrete/BinanceSubscriber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/subscription/concrete/BinanceWebSocketHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cs-integration/binance-api/src/main/java/com/nechay/cryptoshark/binance/api/utils/BinanceStreamName.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cs-integration/binance-api/src/main/java/com/nechay/cryptoshark/binance/api/utils/BinanceUpdateSpeed.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs-integration/connection-api/src/main/java/com/nechay/cryptoshark/connection/model/Markets.java" beforeDir="false" afterPath="$PROJECT_DIR$/cs-integration/connection-api/src/main/java/com/nechay/cryptoshark/connection/model/Market.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/CsBackApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/CsBackApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/app/BinanceProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/app/BinanceProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/controller/SubscriptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/controller/SubscriptionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/dto/SubscriptionRequestTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/cs-back/src/main/java/com/nechay/cryptoshark/dto/request/SubscriptionRequestTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cs-back/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cs-back/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cs-integration/binance-api/src/main/java/com/nechay/cryptoshark/binance/api/utils/BinanceUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/cs-integration/binance-api/src/main/java/com/nechay/cryptoshark/binance/api/utils/BinanceUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cs-integration/binance-api/src/main/java/com/nechay/cryptoshark/binance/api/ws/requests/StreamSubscriptionRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/cs-integration/binance-api/src/main/java/com/nechay/cryptoshark/binance/api/ws/requests/StreamSubscriptionRequest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +46,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/io/projectreactor/reactor-core/3.5.9/reactor-core-3.5.9-sources.jar!/reactor/core/publisher/Flux.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/io/projectreactor/reactor-core/3.5.9/reactor-core-3.5.9-sources.jar!/reactor/core/publisher/Mono.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar!/org/reactivestreams/Publisher.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/6.0.11/spring-context-6.0.11-sources.jar!/org/springframework/scheduling/annotation/EnableScheduling.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/6.0.11/spring-web-6.0.11.jar!/org/springframework/http/ResponseEntity.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webflux/6.0.11/spring-webflux-6.0.11.jar!/org/springframework/web/reactive/socket/WebSocketHandler.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webflux/6.0.11/spring-webflux-6.0.11.jar!/org/springframework/web/reactive/socket/WebSocketSession.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webflux/6.0.11/spring-webflux-6.0.11.jar!/org/springframework/web/reactive/socket/client/WebSocketClient.class" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -51,20 +68,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "openjdk-17",
-    "last_opened_file_path": "C:/Users/anechaev/IdeaProjects/Crypto/CryptoShark/cs-back/src/main/resources",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/anechaev/IdeaProjects/Crypto/CryptoShark&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;92a15cc7f5cdf430d9a485504061a6e2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\anechaev\IdeaProjects\Crypto\CryptoShark\cs-back\src\main\resources" />
@@ -73,7 +91,7 @@
       <recent name="C:\Users\anechaev\IdeaProjects\Crypto\CryptoShark\integration" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.StreamBookTickerUpdateSerializationTest.testDeserialization">
     <configuration name="StreamBookTickerUpdateSerializationTest.testDeserialization" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="binance-api" />
       <extension name="coverage">
@@ -86,6 +104,13 @@
       <option name="MAIN_CLASS_NAME" value="com.nechay.cryptoshark.binance.api.StreamBookTickerUpdateSerializationTest" />
       <option name="METHOD_NAME" value="testDeserialization" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CsBackApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="cs-back" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.nechay.cryptoshark.CsBackApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -104,7 +129,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1694342767468</updated>
-      <workItem from="1694342769221" duration="7551000" />
+      <workItem from="1694342769221" duration="10129000" />
+      <workItem from="1694598855326" duration="590000" />
+      <workItem from="1694604576587" duration="2362000" />
+      <workItem from="1694805152886" duration="9036000" />
+      <workItem from="1694941261834" duration="6596000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <created>1694347595615</created>
@@ -120,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694347626051</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="back had been added">
+      <created>1694385855318</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1694385855318</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,7 +175,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial" />
+    <MESSAGE value="back had been added" />
+    <option name="LAST_COMMIT_MESSAGE" value="back had been added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
