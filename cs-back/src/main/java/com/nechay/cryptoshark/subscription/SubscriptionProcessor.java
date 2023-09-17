@@ -1,8 +1,10 @@
 package com.nechay.cryptoshark.subscription;
 
 import com.nechay.cryptoshark.connection.model.Market;
+import reactor.core.publisher.Mono;
 
 import javax.annotation.Nonnull;
+import java.util.List;
 
 /**
  * @author anechaev
@@ -12,4 +14,7 @@ public interface SubscriptionProcessor {
 
     @Nonnull
     Market getDedicatedMarket();
+
+    @Nonnull
+    Mono<Void> subscribe(@Nonnull List<String> symbols);
 }

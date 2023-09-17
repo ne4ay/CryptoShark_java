@@ -28,15 +28,23 @@ public class CompoundSubscriptionProcessor {
 
     public Mono<SubscriptionResponseTO> subscribe(@Nonnull SubscriptionRequestTO request) {
         Set<Market> markets = new HashSet<>(request.getMarkets());
+        if (markets.isEmpty()) {
+            return new UnsupportedMarketException("Markets are empty!").toMono();
+        }
         if (!markets.contains(Market.BINANCE)) {
             return new UnsupportedMarketException("Unsupported market!").toMono();
+        }
+        List<String> symbols = request.getSymbols();
+        if (symbols.isEmpty()) {
+            return new UnsupportedMarketException("Symbols are empty!").toMono();
         }
         concreteProcessors.entrySet()
             .stream()
             .filter(entry -> markets.contains(entry.getKey()))
             .map(Map.Entry::getValue)
             .flatMap(List::stream)
-            .forEach(System.out::println);
+            .map(subscriptionProcessor -> subscriptionProcessor.subscribe(symbols))
+            .forEach(mono ->  mono.subscribe($ -> {}));
         return Mono.just(new SubscriptionResponseTO(request.getSymbols()));
 
 

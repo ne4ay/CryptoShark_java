@@ -8,6 +8,7 @@ import org.springframework.web.reactive.socket.WebSocketMessage;
 import org.springframework.web.reactive.socket.WebSocketSession;
 import reactor.core.publisher.Mono;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 
 import static com.nechay.cryptoshark.dto.DtoUtils.OBJECT_MAPPER;
@@ -18,23 +19,34 @@ import static com.nechay.cryptoshark.dto.DtoUtils.OBJECT_MAPPER;
  */
 public class BinanceWebSocketHandler implements WebSocketHandler {
 
+    private volatile WebSocketSession session;
 
     @Override
     public Mono<Void> handle(WebSocketSession session) {
-        String subscriptionMessage;
-        try {
-            subscriptionMessage = OBJECT_MAPPER.writeValueAsString(createSubRequest());
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-        return session.send(Mono.just(session.textMessage(subscriptionMessage)))
-            .thenMany(session.receive()
-                .map(WebSocketMessage::getPayloadAsText)
-                .log())
+        this.session = session;
+        return session.receive()
+            .map(WebSocketMessage::getPayloadAsText)
+            .log()
             .then();
     }
 
-    private StreamSubscriptionRequest createSubRequest() {
-        return StreamSubscriptionRequest.subscribtion(List.of("btcusdt"), BinanceStreamName.BOOK_TICKER, 1);
+    @Nonnull
+    public Mono<Void> subscribe(@Nonnull List<String> symbols) {
+        if (session == null) {
+            return Mono.empty();
+        }
+        String subscriptionMessage;
+        try {
+            subscriptionMessage = OBJECT_MAPPER.writeValueAsString(createSubRequest(symbols));
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+        var message = this.session.textMessage(subscriptionMessage);
+        return this.session.send(Mono.just(message))
+            .then();
+    }
+
+    private StreamSubscriptionRequest createSubRequest(@Nonnull List<String> symbols) {
+        return StreamSubscriptionRequest.subscribtion(symbols, BinanceStreamName.BOOK_TICKER, 1);
     }
 }
