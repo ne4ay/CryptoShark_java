@@ -1,9 +1,11 @@
 package com.nechay.cryptoshark.subscription;
 
 import com.nechay.cryptoshark.connection.model.Market;
+import com.nechay.cryptoshark.dto.nested.SubscriptionMarketInfo;
 import com.nechay.cryptoshark.dto.request.SubscriptionRequestTO;
 import com.nechay.cryptoshark.dto.response.SubscriptionResponseTO;
 import com.nechay.cryptoshark.exception.UnsupportedMarketException;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import javax.annotation.Nonnull;
@@ -38,15 +40,15 @@ public class CompoundSubscriptionProcessor {
         if (symbols.isEmpty()) {
             return new UnsupportedMarketException("Symbols are empty!").toMono();
         }
-        concreteProcessors.entrySet()
+        List<Mono<SubscriptionMarketInfo>> infos = concreteProcessors.entrySet()
             .stream()
             .filter(entry -> markets.contains(entry.getKey()))
             .map(Map.Entry::getValue)
             .flatMap(List::stream)
             .map(subscriptionProcessor -> subscriptionProcessor.subscribe(symbols))
-            .forEach(mono ->  mono.subscribe($ -> {}));
-        return Mono.just(new SubscriptionResponseTO(request.getSymbols()));
-
-
+            .toList();
+        return Flux.concat(infos)
+            .collectList()
+            .map(SubscriptionResponseTO::new);
     }
 }

@@ -3,6 +3,8 @@ package com.nechay.cryptoshark.subscription.concrete;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.nechay.cryptoshark.binance.api.utils.BinanceStreamName;
 import com.nechay.cryptoshark.binance.api.ws.requests.StreamSubscriptionRequest;
+import com.nechay.cryptoshark.connection.model.Market;
+import com.nechay.cryptoshark.dto.nested.SubscriptionMarketInfo;
 import org.springframework.web.reactive.socket.WebSocketHandler;
 import org.springframework.web.reactive.socket.WebSocketMessage;
 import org.springframework.web.reactive.socket.WebSocketSession;
@@ -31,7 +33,7 @@ public class BinanceWebSocketHandler implements WebSocketHandler {
     }
 
     @Nonnull
-    public Mono<Void> subscribe(@Nonnull List<String> symbols) {
+    public Mono<SubscriptionMarketInfo> subscribe(@Nonnull List<String> symbols) {
         if (session == null) {
             return Mono.empty();
         }
@@ -43,7 +45,11 @@ public class BinanceWebSocketHandler implements WebSocketHandler {
         }
         var message = this.session.textMessage(subscriptionMessage);
         return this.session.send(Mono.just(message))
-            .then();
+            .then(Mono.just(createMarketInfo(symbols)));
+    }
+
+    private SubscriptionMarketInfo createMarketInfo(@Nonnull List<String> symbols) {
+        return new SubscriptionMarketInfo(Market.BINANCE, symbols);
     }
 
     private StreamSubscriptionRequest createSubRequest(@Nonnull List<String> symbols) {

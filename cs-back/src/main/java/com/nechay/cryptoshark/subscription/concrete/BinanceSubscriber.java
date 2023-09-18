@@ -5,6 +5,7 @@ import com.nechay.cryptoshark.binance.api.utils.BinanceStreamName;
 import com.nechay.cryptoshark.binance.api.utils.BinanceUpdateSpeed;
 import com.nechay.cryptoshark.binance.api.utils.BinanceUtils;
 import com.nechay.cryptoshark.connection.model.Market;
+import com.nechay.cryptoshark.dto.nested.SubscriptionMarketInfo;
 import com.nechay.cryptoshark.subscription.SubscriptionProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +18,7 @@ import reactor.core.publisher.Mono;
 import javax.annotation.Nonnull;
 import java.net.URI;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 import static java.util.Objects.requireNonNull;
 
@@ -36,8 +38,14 @@ public class BinanceSubscriber implements SubscriptionProcessor {
         this.properties = requireNonNull(properties, "properties");
         this.client = new ReactorNettyWebSocketClient();
         this.webSocketHandler = new BinanceWebSocketHandler();
+        connectTheWebSocketClient();
+    }
+
+    private void connectTheWebSocketClient() {
+        URI address = constructAddress();
         this.client.execute(constructAddress(), this.webSocketHandler)
-            .subscribe($ -> {});
+            .doOnSuccess($ -> log.info("Connected to the {}", address))
+            .subscribe();
     }
 
     private URI constructAddress() {
@@ -53,7 +61,7 @@ public class BinanceSubscriber implements SubscriptionProcessor {
 
     @Nonnull
     @Override
-    public Mono<Void> subscribe(@Nonnull List<String> symbols) {
+    public Mono<SubscriptionMarketInfo> subscribe(@Nonnull List<String> symbols) {
         return webSocketHandler.subscribe(symbols);
     }
 }

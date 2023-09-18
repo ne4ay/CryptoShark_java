@@ -37,7 +37,7 @@ public class SubscriptionController {
     @PostMapping
     public Mono<ResponseEntity<String>> subscribe(@RequestBody SubscriptionRequestTO request) {
         return processor.subscribe(request)
-            .map(response -> ResponseEntity.ok("Subscribed: " + response.getNewSymbols()))
+            .map(response -> ResponseEntity.ok("Subscribed: " + response.getMarketInfos()))
             .onErrorResume(UnsupportedMarketException.class,
                 exception -> createMonoResponse(exception.getMessage(), HttpStatus.BAD_REQUEST));
     }

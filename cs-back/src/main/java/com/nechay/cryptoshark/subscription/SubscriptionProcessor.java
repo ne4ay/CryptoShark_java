@@ -1,6 +1,7 @@
 package com.nechay.cryptoshark.subscription;
 
 import com.nechay.cryptoshark.connection.model.Market;
+import com.nechay.cryptoshark.dto.nested.SubscriptionMarketInfo;
 import reactor.core.publisher.Mono;
 
 import javax.annotation.Nonnull;
@@ -16,5 +17,5 @@ public interface SubscriptionProcessor {
     Market getDedicatedMarket();
 
     @Nonnull
-    Mono<Void> subscribe(@Nonnull List<String> symbols);
+    Mono<SubscriptionMarketInfo> subscribe(@Nonnull List<String> symbols);
 }

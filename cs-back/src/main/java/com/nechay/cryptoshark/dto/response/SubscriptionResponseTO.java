@@ -1,6 +1,7 @@
 package com.nechay.cryptoshark.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.nechay.cryptoshark.dto.nested.SubscriptionMarketInfo;
 
 import java.util.List;
 import java.util.Objects;
@@ -11,17 +12,17 @@ import java.util.Objects;
  */
 public class SubscriptionResponseTO {
     @JsonProperty
-    private List<String> newSymbols;
+    private List<SubscriptionMarketInfo> marketInfos;
 
-    public SubscriptionResponseTO(List<String> newSymbols) {
-        this.newSymbols = newSymbols;
+    public SubscriptionResponseTO(List<SubscriptionMarketInfo> marketInfos) {
+        this.marketInfos = marketInfos;
     }
 
     public SubscriptionResponseTO() {
     }
 
-    public List<String> getNewSymbols() {
-        return newSymbols;
+    public List<SubscriptionMarketInfo> getMarketInfos() {
+        return marketInfos;
     }
 
     @Override
@@ -30,11 +31,11 @@ public class SubscriptionResponseTO {
             return true;
         if (!(o instanceof SubscriptionResponseTO that))
             return false;
-        return Objects.equals(newSymbols, that.newSymbols);
+        return Objects.equals(marketInfos, that.marketInfos);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(newSymbols);
+        return Objects.hash(marketInfos);
     }
 }
